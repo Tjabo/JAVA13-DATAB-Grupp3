@@ -258,7 +258,7 @@ public class Randomizer {
 	public void exportInsertStatement() {
 		
 		try {
-			fw = new FileWrite("res/export_employees.sql");
+			fw = new FileWrite("res/export.sql");
 		} catch (IOException e) {
 			System.out.println("Shit happans! " + e.getMessage());
 			e.printStackTrace();
