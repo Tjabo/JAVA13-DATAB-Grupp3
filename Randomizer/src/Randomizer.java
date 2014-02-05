@@ -1,5 +1,6 @@
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -129,6 +130,10 @@ public class Randomizer {
 			String area = areaCodes[Math.abs(rand.nextInt(areaCodes.length))];
 			String phone = phoneNums.get(Math.abs(rand.nextInt(phoneNums.size())));
 			int title = rand.nextInt(3);
+			int year = (2014 - Math.abs(rand.nextInt(10)))-1900;
+			int month = rand.nextInt(12);
+			int day = rand.nextInt(30);
+			Date doe = new Date(year, month, day);
 			
 			ArrayList<Specialization> specs = new ArrayList<Specialization>();	
 			
@@ -138,7 +143,7 @@ public class Randomizer {
 				Specialization spec = new Specialization(specName, specIndex);	
 				specs.add(spec);
 			}			
-			Person p = new Person(firstName, lastName, area, phone, title, specs);
+			Person p = new Person(firstName, lastName, area, phone, title, specs, doe);
 			persons.add(p);			
 		}
 	}
@@ -218,7 +223,7 @@ public class Randomizer {
 							+ "\"" + p.getFirstName() + "\"" + ", " 
 							+ "\"" + p.getLastName() + "\"" + ", " 
 							+ "\"" + p.getPhone() + "\"" + ", "
-							+ "NOW()"							
+							+ "\"" + p.getDOE() 							
 							+");";
 
 			sqlString.add(employee);

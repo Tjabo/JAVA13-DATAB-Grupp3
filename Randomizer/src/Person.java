@@ -1,3 +1,4 @@
+import java.sql.Date;
 import java.util.ArrayList;
 
 
@@ -8,16 +9,18 @@ public class Person {
 	private String areaCode;
 	private String phoneNumber;
 	private int title;
+	private Date doe;
 	
 	private ArrayList<Specialization> specializations;
 	
-	public Person(String firstName, String lastName, String areaCode, String phoneNumber, int title, ArrayList<Specialization> specs) {
+	public Person(String firstName, String lastName, String areaCode, String phoneNumber, int title, ArrayList<Specialization> specs, Date doe) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.areaCode = areaCode;
 		this.phoneNumber = phoneNumber;
 		this.title = title;
 		this.specializations = specs;
+		this.doe = doe;
 	}
 	
 	public void printMe() {
@@ -53,6 +56,10 @@ public class Person {
 		return this.specializations;
 	}
 	
+	public Date getDOE() {
+		return this.doe;
+	}
+	
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
@@ -71,5 +78,9 @@ public class Person {
 	
 	public void setTitle(int title) {
 		this.title = title;
+	}
+	
+	public void setDOE(Date doe) {
+		this.doe = doe;
 	}
 }
