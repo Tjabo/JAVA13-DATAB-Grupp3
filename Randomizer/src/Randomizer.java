@@ -23,7 +23,7 @@ public class Randomizer {
 	private FileWrite fw;
 	private FileRead fr;
 	
-	private int NUMBER_TO_GEN = 2000;
+	private int NUMBER_TO_GEN = 10;
 	
 	private Random rand;
 
@@ -142,8 +142,9 @@ public class Randomizer {
 				String specName = specializations[specIndex];
 				Specialization spec = new Specialization(specName, specIndex);	
 				specs.add(spec);
-			}			
-			Person p = new Person(firstName, lastName, area, phone, title, specs, doe);
+			}
+			Workplace wp = workplaces.get(rand.nextInt(181));
+			Person p = new Person(firstName, lastName, area, phone, title, wp, specs, doe);
 			persons.add(p);			
 		}
 	}
@@ -223,7 +224,7 @@ public class Randomizer {
 							+ "\"" + p.getFirstName() + "\"" + ", " 
 							+ "\"" + p.getLastName() + "\"" + ", " 
 							+ "\"" + p.getPhone() + "\"" + ", "
-							+ "\"" + p.getDOE() 							
+							+ "\"" + p.getDOE() + "\""  							
 							+");";
 
 			sqlString.add(employee);
@@ -254,6 +255,9 @@ public class Randomizer {
 				title = "INSERT INTO assistant_nurse (employeeid) VALUES (" + employeeIndex + ");";
 				sqlString.add(title);
 			}
+			
+			String workplace = "INSERT INTO employee_workplace (employeeid, workplaceid) VALUES (" + employeeIndex + ", " + p.getWorkplace().getWorkplaceid()+");";
+			sqlString.add(workplace);
 			
 			employeeIndex++;			
 		}		

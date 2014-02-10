@@ -12,14 +12,16 @@ public class Person {
 	private Date doe;
 	
 	private ArrayList<Specialization> specializations;
+	private Workplace wp;
 	
-	public Person(String firstName, String lastName, String areaCode, String phoneNumber, int title, ArrayList<Specialization> specs, Date doe) {
+	public Person(String firstName, String lastName, String areaCode, String phoneNumber, int title, Workplace wp, ArrayList<Specialization> specs, Date doe) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.areaCode = areaCode;
 		this.phoneNumber = phoneNumber;
 		this.title = title;
 		this.specializations = specs;
+		this.wp = wp;
 		this.doe = doe;
 	}
 	
@@ -56,8 +58,16 @@ public class Person {
 		return this.specializations;
 	}
 	
+	public Workplace getWorkplace() {
+		return this.wp;
+	}
+	
 	public Date getDOE() {
 		return this.doe;
+	}
+	
+	public void setWorkplace(Workplace wp) {
+		this.wp = wp;
 	}
 	
 	public void setFirstName(String firstName) {
